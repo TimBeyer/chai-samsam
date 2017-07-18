@@ -2,6 +2,15 @@ const samsam = require('samsam')
 
 module.exports = function (chai, util) {
   const Assertion = chai.Assertion
+  const assert = chai.assert
+
+  assert.deepMatch = function (actual, expected, msg) {
+    new Assertion(actual, msg).deep.match(expected)
+  }
+
+  assert.notDeepMatch = function (actual, expected, msg) {
+    new Assertion(actual, msg).not.deep.match(expected)
+  }
 
   Assertion.overwriteMethod('match', function (_super) {
     function assertDeepMatch (val, msg) {

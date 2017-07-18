@@ -38,6 +38,10 @@ expect([{
   { jobs: [{ pilot: true }] }
 ])
 // =>  pass
+
+// also possible
+assert.deepMatch(a, b)
+assert.notDeepMatch(a, b)
 ```
 
 ## License

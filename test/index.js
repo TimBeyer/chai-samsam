@@ -3,6 +3,7 @@
 const chaiSamSam = require('..')
 const chai = require('chai')
 const expect = chai.expect
+const assert = chai.assert
 
 const deepObj = {
   a: {
@@ -64,6 +65,11 @@ describe('chai-samsam', function () {
         expect(deepObj).to.deep.match({ e: 'baz' }, 'My custom message')
         expect(function () { expect(deepObj).to.deep.match({ bad: 'nomatch' }, 'My custom error') }).to.throw(Error, /My custom error/)
       })
+    })
+
+    it('should allow usage of the assert interface', function () {
+      assert.deepMatch([{ test: 'foo', test2: 'bar' }], [{ test2: 'bar' }])
+      assert.notDeepMatch([{ test: 'foo', test2: 'bar' }], [{ test2: false }])
     })
 
     it('should partially match array entries', function () {
