@@ -1,6 +1,6 @@
 {
   "name": "chai-samsam",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Deep matching chai assertions using samsam",
   "main": "index.js",
   "scripts": {
